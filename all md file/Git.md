@@ -15,7 +15,15 @@
 		+ `index/`：暂存区
 		+ `objects/`：本地仓库
 
-# 命令
+# 常用命令
++ `git init`：初始化仓库
++ `git add .`：添加所有文件到暂存区
++ `git commit -m "xxxx"`：提交代码到仓库并添加备注为xxxx
++ `git push`：推送文件到远程仓库
++ `git pull`：拉取远程仓库的文件
++ `git clone xxxx`：克隆xxxx（地址）远程仓库代码到本地
+
+# 命令大全（按字母排序）
 
 + `git -v`：查看版本信息
 + `git add 文件`：将文件从工作区添加到暂存区

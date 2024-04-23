@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "all md file/Linux.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6ca25b7247697fd2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "all md file/Lua.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -49,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "all md file/Lua.md"
               }
             }
           },
@@ -97,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "all md file/Lua.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "all md file/Lua.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,16 +162,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "6af0c54e094cae8c",
+  "active": "6ca25b7247697fd2",
   "lastOpenFiles": [
+    "all md file/Lua.md",
     "目录.md",
-    "all md file/C++.md",
     "README.md",
-    "all md file/C++11.md",
-    "all md file/CMake.md",
-    "all md file/Git.md",
-    "all.md",
     "all md file/Linux.md",
+    "all md file/Git.md",
+    "all md file/CMake.md",
+    "all md file/C++11.md",
+    "all md file/C++.md",
+    "all.md",
     "all md file/Qt.md",
     "all md file/C语言.md",
     "未命名",

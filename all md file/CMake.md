@@ -14,7 +14,7 @@ CMake里面变量默认都是字符串
 + `PROJECT_BINARY_DIR`：执行cmake命令时所在的路径
 + `PROJECT_SOURCE_DIR`：执行cmake命令时后面跟随的路径
 
-# 命令（按字母表排序）
+# 命令（按字母排序）
 
 编译
 + `cmake 路径`：使用CMake编译指定的路径，生成的各种文件在执行该命令的地方 
