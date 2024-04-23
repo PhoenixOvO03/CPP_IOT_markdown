@@ -51,7 +51,8 @@ num3 = 0.2e-1
 
 -- string
 str1 = "hello"
-str2 = [[
+str2 = 'world'
+str3 = [[
 第一行
 第二行
 ]]
@@ -60,10 +61,6 @@ str2 = [[
 t1 = {}
 t2 = {"hello", "world"}
 t3 = {key1 = 100, key2 = 300}
-
---function
-function func()
-end
 ```
 
 ## 作用域
@@ -82,6 +79,7 @@ a, b = 10, 20
 -- 交换
 a, b = b, a
 ```
+
 ## nil
 ```lua
 -- 初始化数字变量a，赋值为10
@@ -92,9 +90,9 @@ a = nil
 
 ## boolean
 ```lua
-a = true
-print(a) -- echo:true
-print(not a) -- echo:false
+print(not true) -- echo:false
+print(true and false) -- echo:false
+print(true or false) -- echo:true
 ```
 
 ## number
@@ -106,6 +104,7 @@ print(a + b) -- echo:13
 print(a - b) -- echo:7
 print(a * b) -- echo:30
 print(a / b) -- echo:3.3333333333333
+print(a ^ b) -- echo:1000.0
 ```
 
 ## string
@@ -125,6 +124,7 @@ print(#"hello你好") -- echo:11
 ```lua
 t1 = {"first", "second"}
 print(t1[1]) -- echo:first
+print("t1个数"..#t1.."个") -- echo:t1个数2个
 
 t2 = {key1 = 100, key2 = 200}
 print(t2.key1) -- echo:100
@@ -136,18 +136,15 @@ t2["key3"] = 300
 t2["key1"] = nil
 ```
 
-## function
-
+# 分支
 ```lua
-function func(n)
-	return n + 1
+if 条件1 then
+	分支1
+elseif 条件2 then
+    分支2
+else
+	分支3
 end
-
-print(type(func)) -- echo:function
-print(func(3)) -- echo:4
-
-func2 = func
-print(func2(5)) -- echo:6
 ```
 
 # 循环
@@ -177,6 +174,121 @@ until 条件
 ```
 
 ## 循环控制语句
++ break
 ```lua
-
+for i = 1, 10, 2 do
+    if i > 5 then
+        break
+    end
+    print(i)
+end
+--[[
+echo:1
+echo:3
+echo:5
+]]
 ```
+
++ goto label -> ::label::
+```lua
+for i = 1, 10, 1 do
+    if i % 2 == 1 then
+        goto continue
+    end
+    print(i)
+    ::continue::
+end
+--[[
+echo:2
+echo:4
+echo:6
+echo:8
+echo:10
+]]
+```
+
+# 函数
+## 定义及初始化
+```lua
+-- 函数也是变量，可以进行赋值、作为参数传递
+[local] function 函数名(参数列表)
+	函数体
+	[return 参数列表]
+end
+```
+
+## 可变参数
+```lua
+function add_all(...)
+    local ret = 0;
+    for key, value in pairs({...}) do
+        ret = ret + value
+    end
+    return ret
+end
+
+print(add_all(10, 20, 30)) -- echo:60
+print(add_all(1, 2, 3, 4)) -- echo:10
+```
+
+# string
+```lua
+-- 字符串全部转为大写字母
+print(string.upper("Hello")) -- echo:HELLO
+-- 字符串全部转为小写字母
+print(string.lower("Hello")) -- echo:hello
+-- 在字符串中替换
+print(string.gsub("aaaa", "a", "z", 3)) -- echo:zzza    3
+-- 返回匹配这个子串的起始索引和结束索引，不存在则返回 nil
+print(string.find("Hello Lua user", "Lua", 1)) -- echo:7       9
+-- 字符串反转
+print(string.reverse("Hello")) -- echo:olleH
+-- 返回一个类似printf的格式化字符串
+print(string.format("the value is:%d",4)) -- echo:the value is:4
+-- 将整型数字转成字符并连接
+print(string.char(97,98,99,100)) -- echo:abcd
+-- 转换字符为整数值(可以指定某个字符，默认第一个字符
+print(string.byte("ABCD",4)) -- echo:68
+-- 计算字符串长度
+print(string.len("abc")) -- echo:3
+-- 返回字符串string的n个拷贝
+print(string.rep("abcd",2)) -- echo:abcdabcd
+-- 字符串截取
+print(string.sub("hello", 2, -1)) -- echo:ello
+```
+
+# 迭代器
+## 默认迭代函数
+```lua
+-- 遍历array
+for k,v in pairs(array) do
+end
+-- 遍历array，索引为1234，断掉则结束
+for k,v in pairs(array) do
+end
+```
+
+## 自定义迭代函数
+```lua
+for 变量列表 in 迭代函数, 状态变量, 控制变量 do
+	循环体
+end
+```
+
+```lua
+-- 返回1~9的平方
+function square(iteratorMaxCount,currentNumber)
+   if currentNumber<iteratorMaxCount
+   then
+      currentNumber = currentNumber+1
+   return currentNumber, currentNumber*currentNumber
+   end
+end
+
+for i,n in square,3,0
+do
+   print(i,n)
+end
+```
+
+# table
